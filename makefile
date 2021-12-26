@@ -15,6 +15,6 @@ install:
 	source .venv/bin/activate; \
 	pip3 install -r py-requirements.txt
 
-.PHONY: init
-init:
-	
+.PHONY: build
+build:
+	source .venv/bin/activate; python3 build_database.py
