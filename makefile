@@ -10,7 +10,7 @@ update-csvs:
 
 .PHONY: install
 install:
-	cat unix-requirements.txt | xargs sudo apt-get install -y
+	cat unix-requirements.txt | xargs brew install
 	python3 -m venv .venv
 	source .venv/bin/activate; \
 	pip3 install -r py-requirements.txt
