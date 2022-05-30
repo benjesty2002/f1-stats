@@ -10,7 +10,7 @@ update-csvs:
 
 .PHONY: install
 install:
-	cat unix-requirements.txt | xargs brew install
+	yes '' | brew install sqlite3
 	python3 -m venv .venv
 	source .venv/bin/activate; \
 	pip3 install -r py-requirements.txt
