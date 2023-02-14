@@ -1,0 +1,1 @@
+select * from full_result_details
