@@ -23,6 +23,15 @@ for csv_file in os.listdir("csvs"):
     if csv_file[-4:] == ".csv":
         pandas.read_csv(f"csvs/{csv_file}").to_sql(csv_file[:-4], conn, index=False)
 
+# run build statements
+cursor = conn.cursor()
+for sql_file in os.listdir("build_statements"):
+    if sql_file[-4:] == ".sql":
+        with open(f"build_statements/{sql_file}", "r") as f:
+            sql = f.read()
+            for sql_part in sql.split(";"):
+                cursor.execute(sql_part)
+
 # run queries
 cursor = conn.cursor()
 for sql_file in os.listdir("queries"):
