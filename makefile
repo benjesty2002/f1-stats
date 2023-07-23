@@ -2,10 +2,7 @@ SHELL := /bin/bash
 
 .PHONY: update-csvs
 update-csvs:
-	source .venv/bin/activate; \
-	kaggle datasets download --unzip --force \
-		-d rohanrao/formula-1-world-championship-1950-2020 \
-		-p ./csvs
+	source .venv/bin/activate; python3 DataSourceHandler.py
 
 
 .PHONY: install
