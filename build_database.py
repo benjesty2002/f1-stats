@@ -19,9 +19,10 @@ if os.path.exists(database_path):
 conn = sqlite3.connect(database_path)
 
 # load data into database
-for csv_file in os.listdir("csvs"):
-    if csv_file[-4:] == ".csv":
-        pandas.read_csv(f"csvs/{csv_file}").to_sql(csv_file[:-4], conn, index=False)
+for csv_dir in ["csvs", "additional_tables"]:
+    for csv_file in os.listdir(csv_dir):
+        if csv_file.endswith(".csv"):
+            pandas.read_csv(f"{csv_dir}/{csv_file}").to_sql(csv_file[:-4], conn, index=False)
 
 # run build statements
 cursor = conn.cursor()
