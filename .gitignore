@@ -135,3 +135,4 @@ csvs
 f1-stats*.sqlite
 queries/*.csv
 all_data.zip
+.DS_Store
