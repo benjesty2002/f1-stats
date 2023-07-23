@@ -1,0 +1,1 @@
+SELECT * FROM driver_standings_leads WHERE points_ratio >= 2
