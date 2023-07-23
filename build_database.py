@@ -27,16 +27,18 @@ for csv_dir in ["csvs", "additional_tables"]:
 # run build statements
 cursor = conn.cursor()
 for sql_file in os.listdir("build_statements"):
-    if sql_file[-4:] == ".sql":
+    if sql_file.endswith(".sql"):
+        print(f"building {sql_file}")
         with open(f"build_statements/{sql_file}", "r") as f:
             sql = f.read()
             for sql_part in sql.split(";"):
                 cursor.execute(sql_part)
 
 # run queries
-cursor = conn.cursor()
+# cursor = conn.cursor()
 for sql_file in os.listdir("queries"):
-    if sql_file[-4:] == ".sql":
+    if sql_file.endswith(".sql"):
+        print(f"running query {sql_file}")
         with open(f"queries/{sql_file}", "r") as f:
             sql = f.read()
             cursor.execute(sql)
