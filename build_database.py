@@ -45,5 +45,10 @@ for sql_file in os.listdir("queries"):
             df = pandas.DataFrame(results, columns=field_names)
             df.to_csv(f"queries/{sql_file[:-4]}.csv", index=False)
 
+            # save query to table
+            table_name = f"query_{sql_file[:-4]}".replace("-", "_")
+            cursor.execute(f"CREATE TABLE {table_name} AS {sql};")
+
+
 # close connection to database
 conn.close()
