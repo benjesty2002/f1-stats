@@ -25,12 +25,12 @@ SELECT  l.year,
         dcfs.points as dc_points
 
 FROM top_leads l
-JOIN final_standings dcfs 
+JOIN vw_final_standings dcfs 
     ON l.year = dcfs.year
     AND dcfs.position = 1
 JOIN drivers dc
     ON dcfs.driverId = dc.driverId
-JOIN final_standings fds
+JOIN vw_final_standings fds
     ON l.year = fds.year
     AND fds.driverId = l.driver_1_id
 WHERE dc.driverId != l.driver_1_id
