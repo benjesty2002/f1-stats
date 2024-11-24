@@ -136,4 +136,10 @@ f1-stats*.sqlite
 queries/*.csv
 all_data.zip
 .DS_Store
-query_results/*
+query_results/driver_standings_perc_diff_grouped.csv
+query_results/driver_standings_perc_diff.csv
+query_results/driver-most-wins.csv
+query_results/fantasy_f1_full_data.csv
+query_results/highest_lead_per_year.csv
+query_results/largest_lead_lost.csv
+query_results/qualy_lap_times.csv
