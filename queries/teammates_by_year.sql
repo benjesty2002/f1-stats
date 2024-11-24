@@ -44,7 +44,8 @@ WITH driver_pairings AS (
     ,       constructorId
     ,       driver_1
     ,       driver_2
-    ,       count(*) as num_races_together
+    ,       count(race_position_1) as num_races_together
+    ,       count(qualy_position_1) as num_qualy_together
     ,       num_races as num_races_in_season
     ,       sum(race_position_1) as total_race_position_1
     ,       sum(points_1) as total_points_1
@@ -64,6 +65,7 @@ SELECT  year
 ,       driver_2
 ,       d2.forename || ' ' || d2.surname as driver_2_name
 ,       num_races_together
+,       num_qualy_together
 ,       num_races_in_season
 ,       total_race_position_1
 ,       total_points_1
