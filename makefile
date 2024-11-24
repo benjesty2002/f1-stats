@@ -3,6 +3,7 @@ SHELL := /bin/bash
 .PHONY: update-csvs
 update-csvs:
 	source .venv/bin/activate; python3 DataSourceHandler.py
+	source .venv/bin/activate; python3 build_database.py
 
 
 .PHONY: install

@@ -1,1 +1,1 @@
-select * from full_result_details
+select * from vw_full_result_details

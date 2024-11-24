@@ -1,4 +1,4 @@
-create view if not exists full_result_details as
+create view if not exists vw_full_result_details as
 with full_results as (
 	select r."year"
 	,      r.raceId 

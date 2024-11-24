@@ -12,7 +12,7 @@ database_path = os.path.join(__directory__, f"{database_name}.sqlite")
 # back up old database
 if os.path.exists(database_path):
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-    backup_path = os.path.join(__directory__, f"{database_name}-{timestamp}.sqlite")
+    backup_path = os.path.join(__directory__, "old_databases", f"{database_name}-{timestamp}.sqlite")
     os.rename(database_path, backup_path)
 
 # create new database

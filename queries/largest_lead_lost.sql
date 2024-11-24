@@ -1,6 +1,6 @@
 WITH ranked_leads AS (
     SELECT *, ROW_NUMBER() OVER (PARTITION BY year, driver_1_id ORDER BY points_lead DESC) as rn
-    FROM driver_standings_leads
+    FROM vw_driver_standings_leads
 )
 , top_leads AS (
     SELECT *

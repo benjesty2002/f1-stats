@@ -1,4 +1,4 @@
-CREATE VIEW IF NOT EXISTS driver_standings_leads AS
+CREATE VIEW IF NOT EXISTS vw_driver_standings_leads AS
 SELECT  r.year,
         r.round as round_num,
         r.name as race_name,

@@ -1,4 +1,4 @@
-CREATE VIEW final_standings AS
+CREATE VIEW vw_final_standings AS
 WITH ranked_races AS (
     SELECT *, RANK() OVER (PARTITION BY year ORDER BY round DESC) as rn
     FROM races

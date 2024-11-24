@@ -1,7 +1,7 @@
 WITH ranked_leads AS 
 (
     SELECT *, RANK() OVER (PARTITION BY year ORDER BY points_ratio DESC) as r
-    FROM driver_standings_leads
+    FROM vw_driver_standings_leads
     -- WHERE year < 2023
 )
 SELECT *
