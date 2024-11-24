@@ -24,7 +24,7 @@ for csv_dir in ["csvs", "additional_tables"]:
         if csv_file.endswith(".csv"):
             pandas.read_csv(f"{csv_dir}/{csv_file}").to_sql(csv_file[:-4], conn, index=False)
 
-# run build statements
+# create views
 cursor = conn.cursor()
 for sql_file in os.listdir("build_statements"):
     if sql_file.endswith(".sql"):
@@ -35,7 +35,6 @@ for sql_file in os.listdir("build_statements"):
                 cursor.execute(sql_part)
 
 # run queries
-# cursor = conn.cursor()
 for sql_file in os.listdir("queries"):
     if sql_file.endswith(".sql"):
         print(f"running query {sql_file}")
@@ -45,11 +44,11 @@ for sql_file in os.listdir("queries"):
             field_names = [d[0] for d in cursor.description]
             results = cursor.fetchall()
             df = pandas.DataFrame(results, columns=field_names)
-            df.to_csv(f"queries/{sql_file[:-4]}.csv", index=False)
+            df.to_csv(f"query_results/{sql_file[:-4]}.csv", index=False)
 
             # save query to table
             table_name = f"query_{sql_file[:-4]}".replace("-", "_")
-            cursor.execute(f"CREATE TABLE {table_name} AS {sql};")
+            cursor.execute(f"CREATE VIEW res_{table_name} AS {sql};")
 
 
 # close connection to database
