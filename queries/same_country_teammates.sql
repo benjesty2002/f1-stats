@@ -11,6 +11,9 @@ WITH driver_details as (
     ,       d.raceid
     ,       d.constructorid
     FROM    results d 
+    JOIN    races r
+        ON  d.raceid = r.raceid
+        AND r.year >= 1900
     JOIN    results tm 
         ON  d.raceid = tm.raceid
         AND d.constructorid = tm.constructorid
